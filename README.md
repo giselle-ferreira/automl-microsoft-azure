@@ -1,5 +1,9 @@
 # automl-microsoft-azure
 
+- Passo a passo de experimento de Aprendizagem Automatizada, de Regressão, utilizando A **Azure Machine Learning**, realizado como desafio de projeto no Bootcamp **Microsoft Azure AI Fundamentals** da [Dio.me](https://dio.me)
+
+<br/>
+
 ## Passo 1 
 - Criar uma conta no [https://azure.microsoft.com/pt-br/free](https://azure.microsoft.com/pt-br/free)
 - O cadastro é inicializado ao clicar no botão "Experimentar gratuitamente" (É necessário informar um número de cartão de crédito)
@@ -108,17 +112,386 @@
 ![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/e59c9084-09e2-47b7-86c8-146125f37356)
 
 ## Passo 8
-- O modelo inicia o treinamento
+- O modelo inicia o treinamento até a finalização
   
 ![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/a788dc15-9ccc-42bb-ac97-eee69e4d54cd)
 
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/8a0edf91-aacf-4ddf-9db9-fcee526c5997)
+
+## Passo 9
+- Validar métricas
+
+- 9.1 -> Acessar as informações do modelo conforme imagem abaixo
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/56d6b4e5-fdef-4851-ba1a-66353f5cfad1)
+
+- 9.2 -> Acessar o job
+
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/644f1220-2b2a-4c77-a2cf-14a9c1e54d8a)
+
+- 9.3 -> Acessar as métricas
+
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/09c1e784-88ef-4874-907c-7a69cad7da9a)
+
+- As métricas trazem dois gráficos, o predicted_true e o residuals, que trazem informações de valores previstos comparados com os reais
+
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/5ec09914-fe37-453e-9468-290537921ad3)
+
+## Passo 10
+- Deploy e Teste do Modelo
+
+- 10.1 -> De volta à página do modelo, escolhemos a opção de Deploy Web Service.
+
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/7f2d36b0-3d97-4a05-a593-07406dd2dbc0)
+
+- 10.2 -> Preencher com as informações fornecidas na documentação e clicar em "Deploy"
+
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/36f2c66f-2322-4777-94a3-8900fb367750)
+
+- 10.3 -> Receberemos a notificação de que o deploy está completo e, no menu esquerdo, vamos clicar na aba Endpoints.
+
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/53696037-5733-47b6-af72-4c1b69ac0d0b)
+
+- 10.4 -> Na tela de Endpoint, confirmamos o status "Succeed" do deploy, e clicamos na aba "Test"
+
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/2b929571-c2b8-424c-bccb-d05c21b0c1ef)
+
+- 10.4 -> Substituímos o json existente, pelo código fornecido pela documentação, e depois clicamos em "Test".
+
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/a5185136-afb5-4af4-a0b2-057d1ece66b1)
+
+- 10.5 -> Resultado do Teste
+
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/60b1b3bc-8737-44d1-8cad-d28dabe853df)
 
 
+## Códigos
+
+<details>
+<summary>Input (Clique para abrir)</summary>
+
+```
+ {
+   "Inputs": { 
+     "data": [
+       {
+         "day": 1,
+         "mnth": 1,   
+         "year": 2022,
+         "season": 2,
+         "holiday": 0,
+         "weekday": 1,
+         "workingday": 1,
+         "weathersit": 2, 
+         "temp": 0.3, 
+         "atemp": 0.3,
+         "hum": 0.3,
+         "windspeed": 0.3 
+       }
+     ]    
+   },   
+   "GlobalParameters": 1.0
+ }
+```
+
+</details>
 
 
+<details>
+<summary>Resultado (Clique para abrir)</summary>
 
+```
+{
+  "Results": [
+    331.839379193704
+  ]
+}
+```
 
+</details>
 
+<details>
+<summary>Swagger URI (Clique para abrir)</summary>
+
+```
+// 20240206030758
+// http://ca6e07b7-d4a1-4ad1-8c57-489dfd4c6228.eastus.azurecontainer.io/swagger.json
+
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "predict-rentals",
+    "description": "API specification for the Azure Machine Learning service predict-rentals",
+    "version": "1.0"
+  },
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "For example: Bearer abc123"
+    }
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "ServiceHealthCheck",
+        "description": "Simple health check endpoint to ensure the service is up at any given point.",
+        "responses": {
+          "200": {
+            "description": "If service is up and running, this response will be returned with the content 'Healthy'",
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "application/json": "Healthy"
+            }
+          },
+          "default": {
+            "description": "The service failed to execute due to an error.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/score": {
+      "post": {
+        "operationId": "RunMLService",
+        "description": "Run web service's model and get the prediction output",
+        "security": [
+          {
+            "Bearer": [
+              
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "serviceInputPayload",
+            "in": "body",
+            "description": "The input payload for executing the real-time machine learning service.",
+            "schema": {
+              "$ref": "#/definitions/ServiceInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The service processed the input correctly and provided a result prediction, if applicable.",
+            "schema": {
+              "$ref": "#/definitions/ServiceOutput"
+            }
+          },
+          "default": {
+            "description": "The service failed to execute due to an error.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/swagger.json": {
+      "get": {
+        "operationId": "GetSwaggerSpec",
+        "description": "Get the Swagger specification.",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "enum": [
+              2,
+              3
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Swagger specification.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "The service failed to execute due to an error.",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ServiceInput": {
+      "type": "object",
+      "properties": {
+        "Inputs": {
+          "type": "object",
+          "required": [
+            "data"
+          ],
+          "properties": {
+            "data": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "day",
+                  "mnth",
+                  "year",
+                  "season",
+                  "holiday",
+                  "weekday",
+                  "workingday",
+                  "weathersit",
+                  "temp",
+                  "atemp",
+                  "hum",
+                  "windspeed"
+                ],
+                "properties": {
+                  "day": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "mnth": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "year": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "season": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "holiday": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "weekday": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "workingday": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "weathersit": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "temp": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "atemp": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "hum": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "windspeed": {
+                    "type": "number",
+                    "format": "double"
+                  }
+                }
+              },
+              "format": "pandas.DataFrame:records"
+            }
+          }
+        },
+        "GlobalParameters": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "example": {
+        "Inputs": {
+          "data": [
+            {
+              "day": 0,
+              "mnth": 0,
+              "year": 0,
+              "season": 0,
+              "holiday": 0,
+              "weekday": 0,
+              "workingday": 0,
+              "weathersit": 0,
+              "temp": 0.0,
+              "atemp": 0.0,
+              "hum": 0.0,
+              "windspeed": 0.0
+            }
+          ]
+        },
+        "GlobalParameters": 1.0
+      }
+    },
+    "ServiceOutput": {
+      "type": "object",
+      "required": [
+        "Results"
+      ],
+      "properties": {
+        "Results": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "format": "numpy.ndarray"
+        }
+      },
+      "example": {
+        "Results": [
+          0
+        ]
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
+```
+
+</details>
+
+##
+
+<div align="center">
+<p>Made with ❤️ by Giselle Ferreira.</p>
+  <p>
+    <a href="https://linkedin.com/in/giselleferreiras" target="_blank" >
+      <img align="center" height="35" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="Giselle Ferreira Linkedin" />
+    </a>
+    <a href="https://instagram.com/giselletech" target="_blank" >
+      <img align="center" height="35" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png" alt="Giselle Ferreira Instagram" />
+    </a>
+  </p>
+</div>
 
 
 
