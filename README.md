@@ -71,20 +71,46 @@
 
 ![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/86b9b033-5042-4f21-9852-1f795e5332b8)
 
-
 - 7.4 -> Escolha da fonte dos dados
 
 ![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/06238e45-cca4-4825-a40c-ac363d057e3c)
 
-- 7.5 -> Inclusão da url do dataset
+- 7.5 -> Inclusão da url do dataset. A url passa por uma verificação e validação.
 
-![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/57df3e2c-94de-4d95-84c6-a0359c46c339)
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/fa37fc73-e064-4be5-8920-f1e1139f8f56)
 
+- 7.6 -> Os dados devem estar com as seguintes configurações
 
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/3b2030c6-08b4-422d-8265-dd8bdbb2134c)
 
+- 7.7 -> Ele traz uma visualização do schema. Não é necessário alterar nenhuma informação.
 
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/c7cd6ac2-dcbd-40fb-9ca2-497b45c76120)
 
+- 7.8 -> Por fim, ele traz todas informações para review, e clicamos em "criar", para criar o dataset.
 
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/3dba151a-e6d4-4ac8-969d-8485f527a7e2)
+
+- 7.9 -> Para avançar, selecionamos o dataset, e clicamos em "next"
+
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/b615675d-30b7-4c53-8a33-284f2040c411)
+
+- 7.10 -> Configurações da tarefa
+
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/c362fa19-26c8-4a5e-ad97-664085dcfaba)
+
+- 7.11 -> Não é necessário setar nenhuma informação diferença da parte de Computação
+
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/31efafef-e201-4872-94d5-677eac379505)
+
+- 7.12 -> As informações são trazidas e podemos enviar o trabalho de treinamento
+
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/e59c9084-09e2-47b7-86c8-146125f37356)
+
+## Passo 8
+- O modelo inicia o treinamento
+  
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/a788dc15-9ccc-42bb-ac97-eee69e4d54cd)
 
 
 
