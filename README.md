@@ -45,15 +45,15 @@
 ![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/f163bd85-4275-481c-b771-b98972acc889)
 
 ## Passo 6
-- Neste passo, caso ainda não tenha, será necessário criar um "workspace", seguindo os passos abaixo. No meu caso, meu workspace já estava criado.
+- O diretório do workspace é então aberto.
+- Posso visualizar todos os workspaces existentes, clicando em "all workspaces"
 
-![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/3bc637a3-4fcc-4028-acdc-643cb051fa1e)
-
-
-![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/7acf0326-5334-471b-9877-0d25712efe2c)
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/d0c313bc-288d-43ff-988e-a518deea160f)
+  
+![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/70198982-b1cf-4e08-a81f-4bb4e2d7c469)
 
 ## Passo 7
-- Entrar no ambiente "Automated ML" e clicar em criar um "new ML automated job"
+- O workspace escolhido é aberto. Preciso agora entrar no ambiente "Automated ML" e clicar em criar um "new ML automated job"
 
 ![image](https://github.com/giselle-ferreira/automl-microsoft-azure/assets/84051263/d36beebe-f666-4b4f-b811-962ac26daabe)
 
